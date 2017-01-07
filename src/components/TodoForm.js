@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class TodoForm extends Component {
 	render(){
@@ -13,4 +14,7 @@ class TodoForm extends Component {
 	}
 }
 
-export default TodoForm;
+export default connect(
+	store => ({}),
+	dispatch =>({})
+)(TodoForm);
