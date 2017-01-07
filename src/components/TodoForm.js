@@ -13,12 +13,11 @@ class TodoForm extends Component {
 			completed: false
 		}
 
-		console.log(todo);
-		console.log(this.props.store.todoReducer);
-
 		if(this.refs.textarea.value !== ''){
 			this.props.addTodo(todo);
 		}
+
+		this.refs.textarea.value = '';
 	}
 
 	render(){	
