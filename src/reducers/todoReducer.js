@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, COMPLETED_TODO } from '../components/todoConstants';
+import { ADD_TODO, REMOVE_TODO, COMPLETED_TODO } from '../constants/todoConstants';
 
 export function todoReducer(state = [], action){
 	switch(action.type){
@@ -16,7 +16,7 @@ export function todoReducer(state = [], action){
 				return false;
 			})
 
-			return newState.map((item, index){
+			return newState.map((item, index) => {
 				item.id = index;
 				return true;
 			})
