@@ -9,7 +9,7 @@ export function addTodo(todo){
 
 export function removeTodo(todo){
 	return ({
-		type: ADD_TODO,
+		type: REMOVE_TODO,
 		todo
 	})
 }
