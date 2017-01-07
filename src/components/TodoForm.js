@@ -5,10 +5,26 @@ import { addTodo } from '../actions/todoActions';
 
 class TodoForm extends Component {
 
-	render(){
+	handleSubmit = (e) => {
+		e.preventDefault();
+		let todo = {
+			id: this.props.store.todoReducer.length,
+			text: this.refs.textarea.value,
+			completed: false
+		}
+
+		console.log(todo);
+		console.log(this.props.store.todoReducer);
+
+		if(this.refs.textarea.value !== ''){
+			this.props.addTodo(todo);
+		}
+	}
+
+	render(){	
 		return(
 			<div>
-				<form>
+				<form onSubmit={this.handleSubmit}>
 					<textarea ref="textarea" />
 					<button type="submit">ADD TODO</button>
 				</form>
