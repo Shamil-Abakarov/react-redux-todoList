@@ -17,7 +17,8 @@ export function todoReducer(state = [], action){
 			})
 
 			return newState.map((item, index){
-				return item.id = index;
+				item.id = index;
+				return true;
 			})
 
 		case COMPLETED_TODO: 
@@ -30,6 +31,6 @@ export function todoReducer(state = [], action){
 
 		default:
 			return state;
-			
+
 	}
 }
