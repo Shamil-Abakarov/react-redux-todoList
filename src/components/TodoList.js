@@ -4,6 +4,11 @@ import { connect } from 'react-redux';
 import { removeTodo, completedTodo } from '../actions/todoActions';
 
 class TodoList extends Component {
+
+	handleRemoveClick = (e, item) => {
+		this.props.removeTodo(item);
+	}
+
 	render(){
 
 		let { todoList } = this.props;
@@ -11,7 +16,7 @@ class TodoList extends Component {
 		let todoItem = todoList.map((item) => {
 			return (
 				<li key={item.id}>
-					{item.text}
+					<span>{item.text}</span> <span  onClick={this.handleRemoveClick.bind(null, item)}>X</span>
 				</li>
 			);
 		})
