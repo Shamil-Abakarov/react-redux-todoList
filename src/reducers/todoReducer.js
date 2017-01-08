@@ -10,7 +10,7 @@ export function todoReducer(state = [], action){
 
 		case REMOVE_TODO:
 			let newState = state.filter((item) => {
-				if(item.id === action.id){
+				if(item.id !== action.todo.id){
 					return item;
 				}
 				return false;
@@ -18,15 +18,16 @@ export function todoReducer(state = [], action){
 
 			return newState.map((item, index) => {
 				item.id = index;
-				return true;
+				return item;
 			})
 
 		case COMPLETED_TODO: 
+		console.log(action);
 			return state.map((item) => {
-				if(item.id === action.id){
-					item.completed = true;
+				if(item.id === action.todo.id){
+					item.completed = !item.completed;
 				}
-				return false;
+				return item;
 			})
 
 		default:
