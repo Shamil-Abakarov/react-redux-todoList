@@ -5,8 +5,12 @@ import { removeTodo, completedTodo } from '../actions/todoActions';
 
 class TodoList extends Component {
 
-	handleRemoveClick = (e, item) => {
+	handleRemoveClick = (item) => {
 		this.props.removeTodo(item);
+	}
+
+	handleCompletedClick = (item) => {
+		this.props.completedTodo(item);
 	}
 
 	render(){
@@ -16,12 +20,12 @@ class TodoList extends Component {
 		let todoItem = todoList.map((item) => {
 			return (
 				<li key={item.id}>
-					<span>{item.text}</span> <span  onClick={this.handleRemoveClick.bind(null, item)}>X</span>
+					<span onClick={this.handleCompletedClick.bind(null, item)}>+</span> 
+					<span className={`todo-list__item ${item.completed ? 'completed' : ''}`}>{item.text}</span> 
+					<span  onClick={this.handleRemoveClick.bind(null, item)}>X</span>
 				</li>
 			);
 		})
-
-		console.log(todoList);
 
 		return(
 			<div>
