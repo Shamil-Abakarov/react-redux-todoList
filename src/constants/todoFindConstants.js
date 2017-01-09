@@ -1,0 +1,1 @@
+export const TODO_FIND_TEXT = 'TODO_FIND_TEXT';

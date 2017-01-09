@@ -1,6 +1,8 @@
 import { ADD_TODO, REMOVE_TODO, COMPLETED_TODO } from '../constants/todoConstants';
 
-export function todoReducer(state = [], action){
+let initialState = JSON.parse(localStorage.getItem("todoItems"));
+
+export function todoReducer(state = initialState, action){
 	switch(action.type){
 		case ADD_TODO:
 			return [

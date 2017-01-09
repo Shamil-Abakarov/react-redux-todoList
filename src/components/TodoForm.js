@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { addTodo } from '../actions/todoActions';
+import './TodoForm.css';
 
 class TodoForm extends Component {
 
@@ -18,14 +19,16 @@ class TodoForm extends Component {
 		}
 
 		this.refs.textarea.value = '';
+
 	}
 
 	render(){	
 		return(
-			<div>
-				<form onSubmit={this.handleSubmit}>
-					<textarea ref="textarea" />
-					<button type="submit">ADD TODO</button>
+			<div className="form__wrapper">
+				<h1 className="form__title">TodoList</h1>
+				<form className="form" onSubmit={this.handleSubmit}>
+					<textarea className="form__textarea" ref="textarea" placeholder="Add todo..."/>
+					<button className="form__btn" type="submit">ADD TODO</button>
 				</form>
 			</div>
 		);
